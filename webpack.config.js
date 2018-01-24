@@ -10,8 +10,10 @@ module.exports = {
 	entry: './app/index.js',
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		filename: 'bundle.js'
+		filename: 'bundle.js',
+		publicPath: '/'
 	},
+	watch: true,
 	module: {
 		rules: [
 			{
@@ -34,10 +36,17 @@ module.exports = {
 			},
 			{
 				test: /\.(png|jp(e)g|svg)$/,
-				use: [{
-					loader: 'url-loader',
-					options: { limit: 8192 }
-				}]
+				use: [
+					{
+						loader: 'url-loader',
+						options: { limit: 8192 }
+						// name: 'images/[hash]-[name].[ext]'
+					},
+					{
+						loader: 'file-loader',
+						options: {name: 'images/[name].[ext]' }
+					}
+				]
 			}
 		]
 	},
@@ -45,6 +54,7 @@ module.exports = {
 		extractPlugin,
 		new HtmlWebpackPlugin({
 			template: './app/index.html'
+			// filename: './dist/index.html'
 		})
 	]
 };

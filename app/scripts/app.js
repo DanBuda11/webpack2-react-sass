@@ -7,7 +7,9 @@ export default class App extends React.Component {
 			<div>
 				<Link to="/other">Other Page</Link>
 				<h1>Hello World!</h1>
-				<img src="./app/images/small.jpg" />
+
+
+				<img src={require('../images/small.jpg')} />
 			</div>
 		);
 	}
