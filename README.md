@@ -1,4 +1,4 @@
-##Simple Webpack 2 setup with ReactJS & Sass
+## Simple Webpack 2 setup with ReactJS & Sass
 
 This was created as a result of needing to update a project that was using a really early version of Webpack 1 that was configred by someone else. In order to get everything up and running again and a little more updated I put this little ditty together.
 
