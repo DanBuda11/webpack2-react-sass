@@ -10,8 +10,8 @@ module.exports = {
 	entry: './app/index.js',
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		filename: 'bundle.js',
-		publicPath: '/'
+		filename: 'bundle.js'
+		// publicPath: '/'
 	},
 	watch: true,
 	module: {
@@ -35,17 +35,17 @@ module.exports = {
 				})
 			},
 			{
-				test: /\.(png|jp(e)g|svg)$/,
+				test: /\.(png|jpe?g|svg)$/,
 				use: [
 					{
 						loader: 'url-loader',
 						options: { limit: 8192 }
 						// name: 'images/[hash]-[name].[ext]'
-					},
-					{
-						loader: 'file-loader',
-						options: {name: 'images/[name].[ext]' }
 					}
+					// {
+					// 	loader: 'image-webpack-loader',
+					// 	options: { bypassOnDebug: true }
+					// }
 				]
 			}
 		]
@@ -53,8 +53,8 @@ module.exports = {
 	plugins: [
 		extractPlugin,
 		new HtmlWebpackPlugin({
-			template: './app/index.html'
-			// filename: './dist/index.html'
+			template: './app/index.html',
+			filename: './dist/index.html'
 		})
 	]
 };

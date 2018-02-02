@@ -10,6 +10,7 @@ export default class App extends React.Component {
 
 
 				<img src={require('../images/small.jpg')} />
+				<img src={require('../images/big.jpg')} />
 			</div>
 		);
 	}
